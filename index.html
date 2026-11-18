@@ -3,15 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Campus Stores · Media equipment desk</title>
+    <title>Campus Stores · Media Equipment Desk</title>
     <meta
       name="description"
-      content="Work a shift at a fictional campus equipment desk in this interactive product engineering exercise."
+      content="Work a shift at a fictional campus media equipment desk in this interactive product engineering exercise."
     />
+    <!-- Web Fonts: Inter & Archivo Stack -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Local Exported Icon Library -->
+    <script src="./third-party/lucide.min.js"></script>
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="./app.js"></script>
   </head>
   <body>
+    <!-- Bundled SVG Icon Library (Fallback & Performance) -->
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="0"
@@ -64,37 +74,10 @@
         />
       </symbol>
     </svg>
+
     <main>
       <div id="campus-stores">
-        <div class="examstrip">
-          <span>Product Engineer practical</span>
-          <details>
-            <summary>Candidate brief</summary>
-            <div class="briefcopy">
-              <h2>Would you keep this product?</h2>
-              <p>
-                Work a shift at the campus media desk. Get the Film Society’s
-                kit out for its screening, handle the return, and leave the next
-                shift enough information to finish the job. Use the time control
-                to move the story forward.
-              </p>
-              <p>
-                Show one moment the product handles well and one moment you
-                would change. Use a specific action or decision from your shift
-                as evidence for each.
-              </p>
-              <p>
-                Sketch or prototype your change. Walk us through the same job
-                using it, explain what you would keep, and name one observation
-                at a real counter that would tell you whether it helped.
-              </p>
-              <p>
-                Use any tools you like, including AI assistants, web search,
-                and design or coding tools.
-              </p>
-            </div>
-          </details>
-        </div>
+        <!-- Main Masthead (Top Practical Case row completely removed) -->
         <header class="mast">
           <div class="brandblock">
             <div class="brandmark" aria-hidden="true">
@@ -102,36 +85,144 @@
                 <use href="#icon-package-open"></use>
               </svg>
             </div>
-            <div>
-              <h1>Campus Stores</h1>
-              <div class="muted">Media equipment desk</div>
+            <div class="brand-info">
+              <div class="brand-row">
+                <h1>Campus Stores</h1>
+                <span class="version-chip">v2.0</span>
+              </div>
+              <div class="muted">Media Equipment Desk · Student Activities Office</div>
             </div>
           </div>
-          <div class="clock">
-            <small>Desk time</small><strong data-clock></strong>
+
+          <div class="mast-actions">
+            <div class="clock-card">
+              <div class="live-dot" aria-hidden="true"></div>
+              <div class="clock">
+                <small>Desk Shift Time</small>
+                <strong data-clock>Friday · 3:45 pm</strong>
+              </div>
+            </div>
+            
+            <button type="button" class="btn-restart-top" data-action="brief" title="View Candidate Brief &amp; Assignment Rubric">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+              <span>Candidate Brief</span>
+            </button>
+
+            <button type="button" class="btn-restart-top" data-action="restart" title="Restart simulation to initial state">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              <span>Restart Shift</span>
+            </button>
           </div>
         </header>
-        <aside class="shift">
-          <div>
-            <b data-shift-title></b>
-            <p data-shift></p>
+
+        <!-- Collapsible Candidate Brief Drawer Modal -->
+        <div class="brief-modal-backdrop" id="brief-backdrop" hidden>
+          <div class="brief-modal-card">
+            <div class="brief-header">
+              <h2>Product Engineering Evaluation · Candidate Brief</h2>
+              <button type="button" class="btn-close-brief" data-action="close-brief">✕</button>
+            </div>
+            <div class="brief-grid">
+              <div class="brief-card">
+                <h4>1. The Scenario</h4>
+                <p>
+                  Work a shift at the campus media desk. Get the Film Society’s kit out for its screening, handle the return, and leave the next shift enough information to finish the job. Use the time control to move the story forward.
+                </p>
+              </div>
+              <div class="brief-card">
+                <h4>2. Analysis &amp; Critique</h4>
+                <p>
+                  Show <strong>one moment the product handles well</strong> and <strong>one moment you would change</strong>. Use a specific action or decision from your shift as evidence for each.
+                </p>
+              </div>
+              <div class="brief-card">
+                <h4>3. Prototype &amp; Measure</h4>
+                <p>
+                  Sketch or prototype your change. Walk us through the same job using it, explain what you would keep, and <strong>name one observation at a real counter</strong> that would tell you whether it helped.
+                </p>
+              </div>
+            </div>
           </div>
-          <button type="button" data-action="advance"></button>
+        </div>
+
+        <!-- Shift Scenario Stepper Bar & Actionable Workflow Guide -->
+        <aside class="shift-timeline-card" aria-label="Current Shift Status and Required Work">
+          <div class="shift-stepper-header">
+            <div class="shift-stages-pills">
+              <span class="stage-pill active" id="stage-0">1. Pickup (3:45 pm)</span>
+              <span class="stage-arrow" aria-hidden="true">→</span>
+              <span class="stage-pill" id="stage-1">2. Partial Return (7:30 pm)</span>
+              <span class="stage-arrow" aria-hidden="true">→</span>
+              <span class="stage-pill" id="stage-2">3. Morning Handover (9:00 am)</span>
+            </div>
+          </div>
+          
+          <div class="shift-body">
+            <div class="shift-left-block">
+              <div class="shift-avatar" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="shift-content">
+                <div class="shift-title-row">
+                  <span class="shift-badge">Live Counter Scenario</span>
+                  <strong data-shift-title>Pickup at the counter</strong>
+                </div>
+                <p data-shift>Kabir is here for the Film Society screening. The film starts at four. Can he leave with everything he needs?</p>
+                
+                <!-- Interactive Live Workflow Checklist -->
+                <div class="workflow-checklist" data-shift-checklist></div>
+              </div>
+            </div>
+            
+            <div class="shift-controls">
+              <div class="shift-action-row">
+                <button type="button" class="btn-advance" data-action="advance" id="btn-advance-shift">Move to return time →</button>
+              </div>
+              <div class="shift-gate-hint" data-shift-hint></div>
+            </div>
+          </div>
         </aside>
+
+        <!-- Shell: Navigation with Accessible Tab Semantics and Register Panel -->
         <div class="shell">
-          <nav aria-label="Store records" data-nav></nav>
+          <nav aria-label="Store records" role="tablist" data-nav class="desk-nav"></nav>
           <section
             class="page"
+            role="tabpanel"
+            id="page-panel"
             data-page
             aria-label="Selected register"
+            tabindex="0"
           ></section>
         </div>
-        <div class="statusbar">
-          <span role="status" aria-live="polite" data-status></span
-          ><button type="button" data-action="restart">
-            Restart sample shift
-          </button>
-        </div>
+
+        <!-- Toast Notification Area -->
+        <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+        <!-- Bottom Status Bar -->
+        <footer class="statusbar">
+          <div class="status-left">
+            <div class="status-indicator">
+              <span class="status-pulse"></span>
+              <span role="status" aria-live="polite" data-status tabindex="-1">Sample shift initialized · Ready at the desk.</span>
+            </div>
+          </div>
+          <div class="status-stats" id="desk-quick-stats">
+            <span class="stat-pill"><strong id="stat-available">5</strong> On shelf</span>
+            <span class="stat-pill"><strong id="stat-loaned">1</strong> On loan</span>
+            <span class="stat-pill"><strong id="stat-repair">1</strong> Repair</span>
+          </div>
+        </footer>
       </div>
     </main>
   </body>
