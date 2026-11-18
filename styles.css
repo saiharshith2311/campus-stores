@@ -6,44 +6,44 @@
 :root {
   /* Palette */
   --bg-page: #ffffff;
-  --bg-subtle: #f8fafc;
-  --bg-hover: #f1f5f9;
-  --bg-active: #e2e8f0;
+  --bg-subtle: #f9fafb;
+  --bg-hover: #f3f4f6;
+  --bg-active: #e5e7eb;
 
   /* Typography */
-  --ink: #0f172a;
-  --ink-secondary: #334155;
-  --quiet: #64748b;
-  --faint: #94a3b8;
+  --ink: #111827;
+  --ink-secondary: #374151;
+  --quiet: #6b7280;
+  --faint: #9ca3af;
 
   /* Hairline Borders */
-  --border-light: #e2e8f0;
-  --border-medium: #cbd5e1;
-  --border-focus: #0284c7;
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+  --border-focus: #1f2937;
 
-  /* Refined Nordic Teal / Slate Blue (Fresh, Premium, Zero Violet, Not Blackish) */
-  --apple-blue: #0284c7;          /* Vibrant Ocean Slate */
-  --apple-blue-hover: #0369a1;    /* Deep Ocean Hover */
-  --apple-blue-active: #075985;   /* Active Ocean */
-  --apple-blue-subtle: #f0f9ff;   /* Fresh light sky wash */
-  --apple-blue-border: #bae6fd;   /* Soft crisp border */
+  /* Premium Light-Black / Charcoal Accents (Replacing Blue) */
+  --apple-blue: #1f2937;          /* Premium soft charcoal black */
+  --apple-blue-hover: #111827;    /* Deep black hover */
+  --apple-blue-active: #000000;   /* Pure black active */
+  --apple-blue-subtle: #f3f4f6;   /* Subtle slate tint */
+  --apple-blue-border: #d1d5db;   /* Soft slate border */
 
-  /* Status Colors */
+  /* Status Colors (Professional Lite Monochrome & Subtle Accents, No Bright Yellow) */
   --status-shelf-bg: #f0fdf4;
   --status-shelf-text: #166534;
   --status-shelf-border: #bbf7d0;
 
-  --status-loan-bg: #f0f9ff;
-  --status-loan-text: #0369a1;
-  --status-loan-border: #bae6fd;
+  --status-loan-bg: #f3f4f6;
+  --status-loan-text: #1f2937;
+  --status-loan-border: #e5e7eb;
 
   --status-repair-bg: #fef2f2;
   --status-repair-text: #991b1b;
   --status-repair-border: #fecaca;
 
-  --status-warn-bg: #f8fafc;
-  --status-warn-text: #475569;
-  --status-warn-border: #cbd5e1;
+  --status-warn-bg: #f3f4f6;
+  --status-warn-text: #374151;
+  --status-warn-border: #d1d5db;
 
   /* Shadows */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -253,14 +253,14 @@ body > main {
 }
 
 .brandmark {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background: #111827;
   color: #ffffff;
   width: 44px;
   height: 44px;
   display: grid;
   place-items: center;
   border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(2, 132, 199, 0.28);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
 }
@@ -410,10 +410,10 @@ button {
 
 button:hover {
   background: #ffffff;
-  border-color: #38bdf8;
-  color: var(--apple-blue);
+  border-color: #4b5563;
+  color: #111827;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.15), 0 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 button:active {
@@ -429,12 +429,12 @@ button:focus-visible,
   outline-offset: 2px;
 }
 
-/* Primary Button (Ocean Slate) — Fully Rounded Pill with Soft Hover Glow */
+/* Primary Button (Premium Charcoal / Light Black) — Fully Rounded Pill with Hover Glow */
 button.primary,
 .primary {
-  background: var(--apple-blue);
+  background: #1f2937;
   color: #ffffff;
-  border: 1px solid var(--apple-blue);
+  border: 1px solid #1f2937;
   border-radius: var(--radius-pill); /* Pill rounded */
   padding: 10px 24px; /* Generous padding so text never touches curved caps */
   min-height: 40px;
@@ -442,25 +442,25 @@ button.primary,
   font-weight: 600;
   line-height: 1;
   white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 button.primary:hover,
 .primary:hover {
-  background: var(--apple-blue-hover);
-  border-color: var(--apple-blue-hover);
+  background: #111827;
+  border-color: #000000;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
 }
 
 button.primary:active,
 .primary:active {
-  background: var(--apple-blue-active);
-  border-color: var(--apple-blue-active);
+  background: #000000;
+  border-color: #000000;
   transform: translateY(0);
-  box-shadow: 0 1px 3px rgba(2, 132, 199, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Top Restart & Brief Button — Fully Rounded Pill */
@@ -484,10 +484,10 @@ button.primary:active,
 
 .btn-restart-top:hover {
   background: #ffffff;
-  border-color: #bae6fd;
-  color: var(--apple-blue);
+  border-color: #4b5563;
+  color: #111827;
   transform: translateY(-2px);
-  box-shadow: 0 5px 14px rgba(2, 132, 199, 0.12);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
 }
 
 .btn-restart-top:active {
@@ -502,24 +502,24 @@ button.primary:active,
   gap: 6px;
   padding: 10px 24px;
   min-height: 40px;
-  background: var(--apple-blue);
+  background: #1f2937;
   color: #ffffff;
-  border: 1px solid var(--apple-blue);
+  border: 1px solid #1f2937;
   border-radius: var(--radius-pill); /* Pill rounded */
   font-size: 13px;
   font-weight: 600;
   line-height: 1;
   white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-advance:hover {
-  background: var(--apple-blue-hover);
-  border-color: var(--apple-blue-hover);
+  background: #111827;
+  border-color: #000000;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
 }
 
 .btn-advance:active {
@@ -589,10 +589,10 @@ button.primary:active,
 }
 
 .stage-pill.active {
-  background: var(--apple-blue);
+  background: #111827;
   color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.28);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .stage-pill.completed {
@@ -976,11 +976,11 @@ button.primary:active,
 }
 
 .buttons button[aria-pressed="true"] {
-  background: var(--apple-blue);
+  background: #1f2937;
   color: #ffffff;
   font-weight: 700;
-  border-color: var(--apple-blue);
-  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+  border-color: #1f2937;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 /* ==========================================================================
@@ -1118,7 +1118,7 @@ button.primary:active,
 .record {
   background: #ffffff;
   border: 1px solid var(--border-light);
-  border-left: 4px solid var(--apple-blue);
+  border-left: 4px solid #1f2937;
   border-radius: var(--radius-lg);
   padding: 18px 22px;
   margin-top: 10px;
@@ -1133,10 +1133,10 @@ button.primary:active,
 }
 
 .record:hover {
-  border-color: #bae6fd;
-  border-left-color: var(--apple-blue-hover);
+  border-color: #9ca3af;
+  border-left-color: #000000;
   transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
   z-index: 2;
 }
 
@@ -1229,8 +1229,8 @@ button.primary:active,
    Express Kit Checkout Banner (Light Black / Charcoal Minimalist)
    ========================================================================== */
 .quick-kit-banner {
-  background: var(--apple-blue-subtle);
-  border: 1px dashed var(--apple-blue-border);
+  background: #f9fafb;
+  border: 1px dashed #9ca3af;
   border-radius: var(--radius-lg);
   padding: 16px 20px;
   margin: 14px 0;
@@ -1246,9 +1246,9 @@ button.primary:active,
 
 .quick-kit-banner:hover {
   background: #ffffff;
-  border-color: var(--apple-blue);
+  border-color: #111827;
   transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.12);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 
@@ -1261,9 +1261,8 @@ button.primary:active,
 .quick-kit-title {
   font-size: 13.5px;
   font-weight: 700;
-  color: var(--apple-blue);
+  color: #111827;
   line-height: 1.3;
-}
 }
 
 .quick-kit-desc {
