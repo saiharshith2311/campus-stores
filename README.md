@@ -36,7 +36,7 @@ Each browser stores its own sample shift locally when browser storage is availab
 ### 3. UX, Accessibility & Architecture Fixes
 - **Button Sizing & Text Fitting**: Removed conflicting CDN preflight resets; provided generous button padding (`9px 20px`), proper height (`38px`), `white-space: nowrap`, and rounded corners so text is never clipped.
 - **Single Full-Bleed Canvas**: Removed the redundant outer white card container, outer shadows, and body margins. The interface seamlessly fills the viewport on a clean `#ffffff` canvas.
-- **Color Palette**: Eliminated all violet/purple tones in favor of an Apple Blue (`#0071e3`) and neutral slate hierarchy.
+- **Color Palette**: Eliminated all violet/purple tones in favor of an Apple-inspired professional light-black / charcoal (`#111827`, `#1f2937`) and clean monochrome slate hierarchy with zero yellow/amber.
 - **Confirmation on Reset**: Added confirmation dialog to "Restart sample shift" to prevent accidental data loss.
 - **Focus Management**: Automatically moves keyboard focus to updated records and status announcements after actions.
 - **Accessible Tabs**: Implemented true ARIA tab semantics (`role="tablist"`, `role="tab"`, `aria-selected`, `aria-controls`, `role="tabpanel"`).
